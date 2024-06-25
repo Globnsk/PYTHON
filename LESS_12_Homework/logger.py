@@ -41,6 +41,43 @@ def print_data ():
         data_second = f.readlines()
     print(*data_second)
 
+
+def search_parameters():
+    print('По какому полю выполнить поиск?')
+    search_field = input('1 - по фамилии\n2 - по имени\n3 - по номеру телефона\n')
+    print()
+    search_value = None
+    if search_field == '1':
+        search_value = input('Введите фамилию для поиска: ')
+        print()
+    elif search_field == '2':
+        search_value = input('Введите имя для поиска: ')
+        print()
+    elif search_field == '3':
+        search_value = input('Введите номер для поиска: ')
+        print()
+    return search_field, search_value
+
+
+def search_to_modify(contact_list: list):
+    search_field, search_value = search_parameters()
+    search_result = []
+    for contact in contact_list:
+        if contact[int(search_field) - 1] == search_value:
+            search_result.append(contact)
+    if len(search_result) == 1:
+        return search_result[0]
+    elif len(search_result) > 1:
+        print('Найдено несколько контактов')
+        for i in range(len(search_result)):
+            print(f'{i + 1} - {search_result[i]}')
+        num_count = int(input('Выберите номер контакта, который нужно изменить/удалить: '))
+        return search_result[num_count - 1]
+    else:
+        print('Контакт не найден')
+    print()
+
+
 def change_data ():
 
     pass
