@@ -1,6 +1,6 @@
-from logger import input_data, print_data, change_data, delete_data
+from logger import add_phone_number, print_data, change_phone_number, delete_contact
 
-def interface():
+def interface(file):
     print ("Добрый день! Вы попали на спец бот-справочник!\n 1 - Запись данных \n 2 - Вывод данных \n 3 - Изменение данных \n 4 - Удаление данных")
     command = int (input('Введите число '))
 
@@ -11,10 +11,10 @@ def interface():
 #interface()
 
     if command == 1:
-        input_data()
+        add_phone_number(file)
     elif command == 2:
-        print_data ()
+        print_data (file)
     elif command == 3:
-        change_data()
+        change_phone_number(file)
     elif command == 4:
-        delete_data()
+        delete_contact(file)

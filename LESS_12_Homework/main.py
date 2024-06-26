@@ -2,6 +2,7 @@ from ui import interface
 
 
 if __name__ == '__main__':
-    interface()
+    file = 'phonebook.csv'
+    interface(file)
 
 
